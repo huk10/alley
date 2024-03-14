@@ -41,15 +41,15 @@ function nodeDescription(node: Node<any>): string {
 
 export function printWithTest(tree: Tree<any>): string[] {
   const result = [];
-  const stack = [{prefix: '', parentPrefix: '', node: tree.root}];
+  const stack = [{prefix: '', parentPrefix: '', node: (tree as any).root}];
   while (stack.length) {
     const {prefix, parentPrefix, node} = stack.pop()!;
     const children = node.children;
     const maxIndex = children.length - 1;
-    if (node !== tree.root) {
+    if (node !== (tree as any).root) {
       result.push(`${prefix} ${nodeDescription(node)}`);
     } else {
-      result.push(`root` + (tree.root.priority > 0 ? ` [priority: ${tree.root.priority}]` : ''));
+      result.push(`root` + ((tree as any).root.priority > 0 ? ` [priority: ${(tree as any).root.priority}]` : ''));
     }
     for (let i = maxIndex; i >= 0; i--) {
       const child = children.at(i);
