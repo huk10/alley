@@ -16,6 +16,8 @@ const config: Config = {
 
   coverageProvider: 'v8',
 
+  coverageReporters: [ "text", "json-summary", "html" ],
+
   resolver: "ts-jest-resolver",
 
   // setupFiles: ['./setup.ts'],
